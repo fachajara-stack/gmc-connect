@@ -1,26 +1,153 @@
 @import "tailwindcss";
 
+/* ─── Tailwind v4 theme — couleurs utilitaires + font-serif ─────────────── */
+@theme {
+  --color-gmc-brown:   #3A2817;
+  --color-gmc-gold:    #FFD700;
+  --color-gmc-gold-br: #FFE34D;
+  --color-gmc-cream:   #F6EFE0;
+  --color-gmc-cream-2: #E8DCC4;
+  --color-gmc-taupe:   #C2B393;
+
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --font-geist: 'Geist', sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* MARRONS */
+  --marron-clair:   #4A3520;
+  --marron-clair-2: #3d2b1a;
+  --marron-moyen:   #3A2817;
+  --marron-fonce:   #20140C;
+  /* VERTS */
+  --vert-foret:     #14331C;
+  --vert-sapin:     #1c4527;
+  /* OR */
+  --or:             #FFD700;
+  --or-clair:       #FFE34D;
+  --or-profond:     #E6BE00;
+  /* TEXTES */
+  --creme:          #F6EFE0;
+  --creme-doux:     #E8DCC4;
+  --taupe:          #C2B393;
+  /* DIVERS */
+  --whatsapp:       #25D366;
+  /* LISERÉS */
+  --lisere-or:      rgba(255, 215, 0, 0.30);
+  --lisere-clair:   rgba(246, 239, 224, 0.13);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist), Arial, sans-serif;
+}
+
+/* ─── Scroll fade-in ─────────────────────────────────────────────────────── */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-fade].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-fade-d1] { transition-delay: 0.1s; }
+[data-fade-d2] { transition-delay: 0.2s; }
+[data-fade-d3] { transition-delay: 0.3s; }
+
+/* ─── Auth form shared styles ────────────────────────────────────────────── */
+.auth-input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--lisere-or);
+  color: var(--creme);
+  border-radius: 12px;
+  padding: 11px 16px;
+  width: 100%;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.auth-input::placeholder { color: rgba(246, 239, 224, 0.35); }
+.auth-input:focus {
+  outline: none;
+  border-color: var(--or);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.15);
+}
+
+.auth-select {
+  background: var(--vert-sapin);
+  border: 1px solid var(--lisere-or);
+  color: var(--creme);
+  border-radius: 12px;
+  padding: 11px 36px 11px 16px;
+  width: 100%;
+  font-size: 14px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFD700' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: border-color 0.2s;
+}
+.auth-select:focus { outline: none; border-color: var(--or); }
+.auth-select option { background: var(--vert-foret); }
+
+.auth-label {
+  display: block;
+  color: var(--creme-doux);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.auth-btn-gold {
+  background: var(--or);
+  color: var(--vert-foret);
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 12px;
+  padding: 13px 20px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+}
+.auth-btn-gold:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.auth-btn-gold:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--lisere-or);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--creme-doux);
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.auth-checkbox-wrap.checked {
+  border-color: var(--or);
+  background: rgba(255, 215, 0, 0.10);
+  color: var(--creme);
+}
+.auth-checkbox-wrap input[type="checkbox"] {
+  accent-color: var(--or);
 }
