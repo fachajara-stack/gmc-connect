@@ -10,9 +10,10 @@ type Props = {
   palette: string
   clients: string
   clientLabel: string
+  slotQty: string
 }
 
-export default function SharedPallet({ forBuyers, label, h2, p, benefits, quote, palette, clients, clientLabel }: Props) {
+export default function SharedPallet({ forBuyers, label, h2, p, benefits, quote, palette, clients, clientLabel, slotQty }: Props) {
   return (
     <section className="border-y border-gmc-gold/30 bg-gmc-brown py-20 md:py-28 lg:py-[150px]">
       <div className="mx-auto grid max-w-[1240px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
@@ -47,7 +48,7 @@ export default function SharedPallet({ forBuyers, label, h2, p, benefits, quote,
             {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="flex flex-col items-center gap-[3px] rounded-[5px] border border-gmc-gold/30 bg-gmc-gold/[0.05] px-1.5 py-4 text-center">
                 <PieChart className="h-[18px] w-[18px] text-gmc-gold" strokeWidth={1.6} />
-                <b className="font-serif text-[1.05rem] text-gmc-gold-br">100 kg</b>
+                <b className="font-serif text-[1.05rem] text-gmc-gold-br">{slotQty}</b>
                 <span className="text-[0.56rem] uppercase tracking-[0.14em] text-gmc-taupe">{clientLabel}</span>
               </div>
             ))}

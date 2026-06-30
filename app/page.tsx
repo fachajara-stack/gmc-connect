@@ -401,6 +401,7 @@ export default function LandingPage() {
         palette={t.sharedPalette}
         clients={t.sharedClients}
         clientLabel={t.sharedClientLabel}
+        slotQty={t.sharedSlotQty}
       />
 
       {/* ── POURQUOI GMC ───────────────────────────────────────────────────── */}
@@ -421,7 +422,7 @@ export default function LandingPage() {
               { icon: '🤝', title: t.adv1Title, desc: t.adv1Desc },
               { icon: '🔍', title: t.adv2Title, desc: t.adv2Desc },
               { icon: '🌿', title: t.adv3Title, desc: t.adv3Desc },
-              { icon: '📱', title: t.adv4Title, desc: t.adv4Desc },
+              { icon: '💬', title: t.adv4Title, desc: t.adv4Desc },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="transition-all duration-200 hover:-translate-y-1 cursor-default" data-fade style={CARD}>
                 <div className="text-2xl mb-3">{icon}</div>

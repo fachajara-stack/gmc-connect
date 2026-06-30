@@ -43,7 +43,7 @@ export default async function AdminInterets() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Image src="/gmc-logo.jpeg" alt="GMC" width={56} height={56} style={{ objectFit: 'cover', borderRadius: 10, flexShrink: 0 }} />
+            <Image src="/GMC_logo_final_transparent.png" alt="GMC" width={56} height={56} style={{ objectFit: 'contain', flexShrink: 0 }} />
             <div>
               <p className="text-xs text-gray-500 leading-none">GMC Connect</p>
               <p className="text-sm font-semibold text-gray-900 leading-none mt-0.5">{t.dashboardAdmin}</p>
