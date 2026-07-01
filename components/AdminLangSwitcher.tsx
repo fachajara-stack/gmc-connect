@@ -16,26 +16,23 @@ export default function AdminLangSwitcher({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className={`flex items-center gap-0.5 bg-gray-100 rounded-lg p-0.5 ${isPending ? 'opacity-60' : ''}`}>
+    <div
+      className={`flex items-center gap-0.5 rounded-lg p-0.5 ${isPending ? 'opacity-60' : ''}`}
+      style={{ background: 'rgba(255,255,255,0.12)' }}
+    >
       <button
         type="button"
         onClick={() => switchTo('es')}
-        className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
-          lang === 'es'
-            ? 'bg-white text-gray-900 shadow-sm'
-            : 'text-gray-400 hover:text-gray-600'
-        }`}
+        className="px-2.5 py-1 rounded-md text-xs font-semibold transition-colors"
+        style={lang === 'es' ? { background: '#FFD700', color: '#14331C' } : { color: 'rgba(246,239,224,0.75)' }}
       >
         🇪🇸 ES
       </button>
       <button
         type="button"
         onClick={() => switchTo('fr')}
-        className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
-          lang === 'fr'
-            ? 'bg-white text-gray-900 shadow-sm'
-            : 'text-gray-400 hover:text-gray-600'
-        }`}
+        className="px-2.5 py-1 rounded-md text-xs font-semibold transition-colors"
+        style={lang === 'fr' ? { background: '#FFD700', color: '#14331C' } : { color: 'rgba(246,239,224,0.75)' }}
       >
         🇫🇷 FR
       </button>

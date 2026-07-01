@@ -47,19 +47,19 @@ export default async function AdminLots() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200">
+      <header style={{ background: '#14331C' }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image src="/GMC_logo_final_transparent.png" alt="GMC" width={56} height={56} style={{ objectFit: 'contain', flexShrink: 0 }} />
             <div>
-              <p className="text-xs text-gray-500 leading-none">GMC Connect</p>
-              <p className="text-sm font-semibold text-gray-900 leading-none mt-0.5">{t.dashboardAdmin}</p>
+              <p className="text-xs leading-none" style={{ color: 'rgba(246,239,224,0.6)' }}>GMC Connect</p>
+              <p className="text-sm font-semibold leading-none mt-0.5" style={{ color: '#F6EFE0' }}>{t.dashboardAdmin}</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-500 hidden sm:block">{adminProfile?.full_name}</span>
+            <span className="text-sm hidden sm:block" style={{ color: 'rgba(246,239,224,0.7)' }}>{adminProfile?.full_name}</span>
             <AdminLangSwitcher lang={lang} />
-            <LogoutButton label={t.logout} />
+            <LogoutButton label={t.logout} className="text-sm underline underline-offset-2 transition-colors hover:opacity-80" style={{ color: '#F6EFE0' }} />
           </div>
         </div>
       </header>
